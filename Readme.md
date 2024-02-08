@@ -1,5 +1,15 @@
 # ZAPATERÍA
 
+**Spring starters**:
+
+* **Spring Web**: Soporte para API REST básico (no HATEOAS) y Web
+* **Spring Data JPA**: Soporte JPA (persistencia clases)
+* **Lombok**: Para los getters, setters, etc. automágicos
+* **MySQL Driver**: Driver de esa BBDDR
+* **DevTools**: Para desarrollo más fácil
+* **Thymeleaf**: Motor de plantillas HTML
+
+
 **Anotaciones lombok**:
 
 * `@data`: Genera todos los getters y setters, toString, hasCode y compare. Genera constructor con todos los atributos.
@@ -15,5 +25,3 @@
 * `@OnetoOne`:
 * `@GeneratedValue(strategy = GenerateType.IDENTITY)`: Unido a `@Id`, será el *AUTO_INCRMENT*  de mySQL
 * `@Column(length = 10)`: Para ponerle una longitud a un atributo *VARCHAR(10)*
-* `@ManytoOne`: Lo ponemos en atributos que son a su vez clases entidad que yo he definido (para indicar clave foránea)
-* `@Oneto`

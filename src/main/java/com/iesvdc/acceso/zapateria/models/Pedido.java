@@ -18,7 +18,7 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    private Usuario cliete;
+    private Usuario cliente;
     @ManyToOne
     private Usuario operario;
     @ManyToOne
@@ -26,6 +26,7 @@ public class Pedido {
     @ManyToOne
     private Telefono telefono;
     private LocalDate fecha;
+    private Float descuento;
     
     /*Si no le pnemos esto mejor, m+as óptimo y más rápido
     @OnetoMany
