@@ -7,7 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,6 +24,7 @@ public class Usuario {
      @Column(length = 50)
     private String nombre;
     private String apellido;
+    @ManyToOne
     private Direccion direc;
     @Column(length = 100)
     private String email;
@@ -29,6 +32,7 @@ public class Usuario {
     private String username;
     @Column(length = 65)
     private String password;
+    @ManyToOne
     private Telefono telefono;
     @OneToMany
     private List<Rol> roles;

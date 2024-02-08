@@ -12,6 +12,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Telefono {
     @Id
-    private Integer numero;
+    private Long numero;
     private int codigoPais;
 }
