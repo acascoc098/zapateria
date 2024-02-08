@@ -1,0 +1,42 @@
+version: '3.1'
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: "no"
+    environment:
+      MYSQL_ROOT_PASSWORD: zx76wbz7FG89k
+    networks:
+      - skynet
+    ports:
+      - 33306:3306
+
+  adminer:
+    image: adminer
+    restart: "no"
+    networks:
+      - skynet
+    ports:
+      - 8181:8080
+  
+  #email:
+  #  image: marooou/postfix-roundcube
+  #  hostname: iesvdc.local
+  #  environment:
+  #    ADMIN_USERNAME: root
+  #    ADMIN_PASSWD: zx76wbz7FG89k
+  #    DOMAIN_NAME: iesvdc.local
+  #    USERS: user1:Pass123,user2:Pass123
+  #  ports:
+  #    - 25:25 
+  #    - 8888:80 
+  #    - 110:110 
+  #    - 143:143 
+  #    - 465:465 
+  #    - 993:993 
+  #    - 995:995
+  #  networks:
+  #    - skynet
+    
+networks:
+  skynet:
