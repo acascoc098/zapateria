@@ -12,3 +12,4 @@
 * `@ManytoOne`: Marcamos así atributos que son a su vez entidades  (clases modelo) con los que tenemos una relación de muchos a uno (N:1)
 * `@OnetoMany`: Marcamos así atributos que son a su vez entidades  (clases modelo) con los que tenemos una relación de uno a muchos (1:N, lo que nos da una lista o similar)
 * `@GeneratedValue(strategy = GenerateType.IDENTITY)`: Unido a `@Id`, será el *AUTO_INCRMENT*  de mySQL
+* `@Column(length = 10)`: Para ponerle una longitud a un atributo *VARCHAR(10)*
