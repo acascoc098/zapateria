@@ -2,37 +2,40 @@
 <html lang="es">
 
 <head>
-    <title>Zapatería Online: Añadir una categoría</title>
-    <th:block th:include="fragmentos/general.html :: headerfiles"></th:block>
+  <title>Su Zapatería Online: Gestión usuarios</title>
+  <th:block th:replace="~{fragmentos/general.html :: headerfiles}"></th:block>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div th:replace="fragmentos/general.html :: navigation"> </div>
+    <div th:replace="~{fragmentos/general.html :: navigation}"> </div>
+    <div class="container m-3">
+        <form class="row"
+            th:action="@{/categorias/add}"
+            th:object="${categoria}"
+            method="post">
 
-        <div class="container">
-            <h3>Añadir categorias</h3>
-
-            <form>
-                <div class="mb-3">
-                    <label>Nombre categoria: </label>
-                    <input name="nombre" placeholder="Escribe aquí el nombre"/>
-                </div>
-                <div>
-                    <label for="padre">Seleccione la categoria padre:</label>
-                    <select>
-                        <option>Sin padre</option>
-                        <option>Deportivo</option>
-                    </select>
-                </div>
-                <div>
-                    <button class="btn" type="submit">Enviar</button>
-                </div>
-            </form>
-
-            <div th:replace="fragmentos/general.html :: footer"></div>
-        </div>
+            <div class="mb-3">
+                <label class="form-label" for="nombre">Nombre de la categoria:</label>
+                <input class="form-control" name="nombre" placeholder="Escriba aquí el nombre"/>
+            </div>
+            <div>
+                <label class="form-label" for="padre">Seleccione la categoría padre:</label>
+                <select class="form-select">
+                    <option>Sin padre</option>
+                    <option 
+                        th:each="categoriaPadre: ${categorias}"
+                        th:value="${categoriaPadre.id}"
+                        th:text="${categoriaPadre.nombre}">                        
+                    </option>
+                </select>
+            </div>
+            <div>
+                <button class="btn btn-success mt-3" type="submit">Enviar</button>
+            </div>
+        </form>
     </div>
+    <div th:replace="fragmentos/general.html :: footer"></div>
+</div>
 </body>
 
 </html>
