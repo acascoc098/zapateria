@@ -21,9 +21,9 @@ public class GeneralController {
         return "error";
     }
 
-    @GetMapping("/index")
+    /*@GetMapping("/index")
     public String showIndex() {
         return "index";
-    }
+    }*/
 
 }
