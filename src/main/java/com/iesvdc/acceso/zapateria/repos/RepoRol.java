@@ -9,6 +9,6 @@ import com.iesvdc.acceso.zapateria.models.Usuario;
 
 public interface RepoRol extends JpaRepository<Rol, Long>{
 
-    @Query("SELECT usuario.* FROM usuario, ususario_roles, rol WHERE usuario.id = usuario_roles.usuario_id AND usuario_roles.roles_id=rol.id AND rol.nombre = ?1")
-    List<Usuario> finUsersByRol(Rol rol);
+    //@Query("SELECT usuario.* FROM usuario, ususario_roles, rol WHERE usuario.id = usuario_roles.usuario_id AND usuario_roles.roles_id=rol.id AND rol.nombre = ?1")
+    //List<Usuario> finUsersByRol(Rol rol);
 }

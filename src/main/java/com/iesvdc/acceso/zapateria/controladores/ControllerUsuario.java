@@ -35,7 +35,7 @@ public class ControllerUsuario {
     @Autowired
     private RepoRol repoRol;
 
-    @GetMapping("")
+    @GetMapping("/")
     public String findAll(Model modelo) {
         List<Usuario> lUsuario = repoUsuario.findAll();
         modelo.addAttribute("usuarios", lUsuario);

@@ -5,11 +5,13 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     restart: "no"
     environment:
-      MYSQL_ROOT_PASSWORD: zx76wbz7FG89k
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     networks:
       - skynet
     ports:
       - 33306:3306
+    volumes:
+        - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql
 
   adminer:
     image: adminer
@@ -18,7 +20,7 @@ services:
       - skynet
     ports:
       - 8181:8080
-  
+    
   #email:
   #  image: marooou/postfix-roundcube
   #  hostname: iesvdc.local
