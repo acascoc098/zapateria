@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head th:fragment="headerfiles">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div th:fragment="navigation">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Zapato veloz</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Inicio </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Usuarios
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a id="menu_modulo" class="dropdown-item" href="/usuarios">Listado</a></li>
+                                    <li><a id="menu_enseñanza" class="dropdown-item" href="/usuarios/add">Alta</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div th:fragment="header">
+            <h2 class="text-center">Departamento de Informática </h2>
+
+            <div class="d-flex justify-content-center">
+                <div class="card bg-light text-center" style="width: 18rem;">
+                    <img class="card-img-top" src="/img/ESCUDO_CHICO.png" alt="Escudo Informática">
+                    <div class="card-body">
+                        <h5 class="card-title">Zapatería Online</h5>
+                        <p class="card-text"> Gestión integral de zapatería On-Line. </p>
+                        <a href="#" id="menu_informe" class="btn btn-primary">Generar informe</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div th:fragment="footer">
+            <footer>
+                <div class="text-center">
+                    <hr/>
+                    <span class="text-center">Ⓒ 2024. IES Virgen del Carmen. CFGS Desarrollo Multiplataforma.</span>
+                    <hr/>
+                </div>
+                <script src="/webjars/jquery/jquery.min.js"></script>
+                <script src="/webjars/popper.js/umd/popper.min.js"></script>
+                <script src="/webjars/bootstrap/js/bootstrap.js"></script>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
