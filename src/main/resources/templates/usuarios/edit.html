@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Su Zapatería Online: Gestión de usuarios</title>
+  <th:block th:replace="~{fragmentos/general.html :: headerfiles}"></th:block>
+</head>
+
+<body>
+    <div th:replace="~{fragmentos/general.html :: navigation}"> </div>
+    <div class="container m-3">
+        <form class="row"
+            th:action="@{/usuarios/add}"
+            th:object="${usuario}"
+            method="post">
+            <input type="number" name="id" hidden th:value="${usuario.id}" />
+            <div class="mb-3">
+                <label class="form-label" for="id">Id:</label>
+                <input class="form-control" name="id" placeholder="Escriba aquí el código postal" th:value="${usuario.id}" disabled/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="nombre">Nombre:</label>
+                <input class="form-control" name="nombre" th:value="${usuario.nombre}" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="apellido">Apellido:</label>
+                <input class="form-control" name="apellido" th:value="${usuario.apellido}" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="username">Username:</label>
+                <input class="form-control" name="username" th:value="${usuario.username}" />
+            </div>
+            <!--<div class="mb-3">
+                <label class="form-label" for="telefono">Teléfono:</label>
+                <input class="form-control" name="telefono" th:value="${usuario.telefono}" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="direccion">Dirección:</label>
+                <input class="form-control" name="direccion" th:value="${usuario.direccion}" />
+            </div>-->
+            <div>
+                <button class="btn btn-success mt-3" type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+    <div th:replace="fragmentos/general.html :: footer"></div>
+</div>
+</body>
+
+</html>

@@ -19,6 +19,7 @@
           <td>Teléfono</td>
           <td>Username</td>
           <td>Direcciones</td>
+          <td>Acciones</td>
         </tr>
       </thead>
       <tbody>
@@ -47,6 +48,10 @@
               número: <span th:text="${direccion.numero}"></span>
               planta: <span th:text="${direccion.planta}"></span>
             </div>
+          </td>
+          <td>   
+            <a class="btn btn-success" th:href="|/usuarios/edit/${usuario.id}|">Actualizar</a>
+            <a class="btn btn-danger" th:href="@{/usuarios/delete/}+${usuario.id}">Borrar</a>                    
           </td>
         </tr>
       </tbody>
