@@ -33,7 +33,7 @@ public class Usuario {
     private String password;
     @ManyToOne
     private Telefono telefono;
-    @OneToMany
+    @ManyToMany
     private List<Rol> roles;
       
     @OneToMany

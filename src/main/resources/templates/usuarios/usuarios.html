@@ -26,17 +26,27 @@
           <td th:text="${usuario.nombre}"></td>
           <td th:text="${usuario.apellido}"></td>
 
-          <td th:text="${usuario.telefono != null} ? ${usuario.telefono.numero}: 'Sin telefono'"></td>
+          <td th:if="${#lists.size(usuario.telefonos) == 0}">
+            <a class="btn btn-primary" href="#">Añadir Teléfono</a>
+          </td>
+          <td th:unless="${#lists.size(usuario.telefonos) == 0}">
+            <div th:each="telefono : ${usuario.telefonos}">
+              <span th:text="${telefono.numero}"></span>
+            </div>
+          </td>
+          
           <td th:text="${usuario.username}"></td>
-
-          <td th:if="${usuario.direccion == null}">
+          
+          <td th:if="${#lists.size(usuario.direcciones) == 0}">
             <a class="btn btn-primary" href="#">Añadir dirección</a>
           </td>
-          <td th:unless="${usuario.direccion == null}">
-            <span th:text="${usuario.direccion.tipoVia}"></span>
-            <span th:text="${usuario.direccion.nombreVia}"></span>,
-            número: <span th:text="${usuario.direccion.numero}"></span>
-            planta: <span th:text="${usuario.direccion.planta}"></span>
+          <td th:unless="${#lists.size(usuario.direcciones) == 0}">
+            <div th:each="direccion : ${usuario.direcciones}">
+              <span th:text="${direccion.tipoVia}"></span>
+              <span th:text="${direccion.nombreVia}"></span>,
+              número: <span th:text="${direccion.numero}"></span>
+              planta: <span th:text="${direccion.planta}"></span>
+            </div>
           </td>
         </tr>
       </tbody>
