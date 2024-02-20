@@ -1,8 +1,10 @@
 package com.iesvdc.acceso.zapateria.controladores;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -77,5 +79,18 @@ public class ControllerUsuario {
     public String deleteUsuario(@PathVariable("id") Long id) {
         repoUsuario.deleteById(id);
         return "redirect:/usuarios";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editUsuarioForm(Model modelo, @PathVariable("id") @NonNull Long id) {
+        Optional <Usuario> oUsuario = repoUsuario.findById(id);
+        if(oUsuario.isPresent()) {
+            modelo.addAttribute(
+            "usuario", oUsuario.get());
+        } else {
+            modelo.addAttribute("mensaje", "El usuario consultado no existe.");
+            return "error";
+        }
+        return "edit";
     }
 }
