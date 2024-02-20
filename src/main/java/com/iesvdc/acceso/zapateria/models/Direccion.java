@@ -26,4 +26,6 @@ public class Direccion {
     private String planta;
     @ManyToOne
     private Localidad localidad;
+    @ManyToOne
+    private Usuario usuario;
 }

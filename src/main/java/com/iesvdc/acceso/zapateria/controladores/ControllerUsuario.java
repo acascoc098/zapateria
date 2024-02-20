@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.iesvdc.acceso.zapateria.models.Usuario;
 // import com.iesvdc.acceso.zapateria.modelos.Direccion;
 // import com.iesvdc.acceso.zapateria.modelos.Telefono;
+import com.iesvdc.acceso.zapateria.models.Usuario;
 import com.iesvdc.acceso.zapateria.repos.RepoDireccion;
 import com.iesvdc.acceso.zapateria.repos.RepoRol;
 import com.iesvdc.acceso.zapateria.repos.RepoTelefono;

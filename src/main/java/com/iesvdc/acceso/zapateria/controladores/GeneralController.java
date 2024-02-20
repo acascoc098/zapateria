@@ -16,14 +16,14 @@ public class GeneralController {
         return "acerca";
     }
 
-    @GetMapping("/error")
-    public String showError() {
-        return "error";
-    }
+    // @GetMapping("/error")
+    // public String showError() {
+    //     return "error";
+    // }
 
-    /*@GetMapping("/index")
-    public String showIndex() {
-        return "index";
-    }*/
+    // @GetMapping("/")
+    // public String showIndex() {
+    //     return "index";
+    // }
 
 }

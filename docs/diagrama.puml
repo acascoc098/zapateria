@@ -1,0 +1,88 @@
+@startuml
+
+class Usuario {
+    - id: Long
+    - Nombre: String
+    - Apellido: String
+    - Email: String
+    - Username: String
+    - Password: String
+}
+
+class Producto {
+    - id: Long
+    - Nombre: String
+    - Descripción: String
+    - Talla: String
+    - Precio: String
+}
+
+
+class Pedido {
+    - id: Long
+    - Fecha: Date
+    - Observaciones: String
+    - Descuento: Float
+}
+
+class LineaPedido {
+    - id: Long
+    - Precio: Float
+    - Cantidad: Integer
+}
+
+class Categoría {
+    - id: Long
+    - Nombre: String
+}
+
+class Dirección {
+    - id: Long
+    - TipoVia: String
+    - NombreVia: String
+    - Número: String
+    - Planta: String
+    - Puerta: String
+    - Portal: String
+    - Nombre: String
+}
+
+class Telefono {
+    - id: Long
+    - CodigoPais: Long
+    - Numero: Long
+    - Nombre: String
+}
+
+class Rol {
+    - id:  Long
+    - Nombre: String
+}
+
+class CodigoPostal {
+    - id: Long
+    - CP: Integer
+    - Localidad: String
+    - Municipio: String
+    - Comunidad: String
+    - Pais: String
+}
+
+Usuario "1" -- "0..*" Pedido : Realiza
+Usuario "1" -- "1..*" Dirección : Tiene
+Usuario "1" -- "1..*" Telefono : Tiene
+Usuario -- Rol : Pertenece
+
+Pedido "1" -- "0..*" LineaPedido : Contiene
+Pedido "0..*" -- "1" Usuario : Asignado_a
+
+Producto "0..*" -- "0..*" LineaPedido : Forma_parte_de
+Producto "1" -- "0..*" Categoría : Pertenece_a
+
+Categoría "1" -- "0..*" Categoría : Pertenece_a
+
+Dirección "1" -- "0..1" CodigoPostal : Tiene
+
+
+
+@enduml

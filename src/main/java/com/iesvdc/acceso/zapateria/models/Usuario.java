@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
@@ -20,11 +22,9 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-     @Column(length = 50)
+    @Column(length = 50)
     private String nombre;
     private String apellido;
-    @ManyToOne
-    private Direccion direc;
     @Column(length = 100)
     private String email;
     @Column(length = 25)
@@ -35,5 +35,12 @@ public class Usuario {
     private Telefono telefono;
     @OneToMany
     private List<Rol> roles;
+      
+    @OneToMany
+    @JoinColumn(name = "usuario_id")
+    List<Telefono> telefonos;
+    @OneToMany
+    @JoinColumn(name = "usuario_id")
+    List<Direccion> direcciones;
 
 }
