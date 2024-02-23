@@ -28,10 +28,11 @@
           <td th:text="${usuario.apellido}"></td>
 
           <td th:if="${#lists.size(usuario.telefonos) == 0}">
-            <a class="btn btn-primary" href="#">Añadir Teléfono</a>
+            <a class="btn btn-primary" th:href="|/usuarios/${usuario.id}/telefonos/add|">Añadir Teléfono</a>
           </td>
           <td th:unless="${#lists.size(usuario.telefonos) == 0}">
             <div th:each="telefono : ${usuario.telefonos}">
+              (+<span th:text="${telefono.codigoPais}"></span>)
               <span th:text="${telefono.numero}"></span>
             </div>
           </td>
@@ -39,7 +40,7 @@
           <td th:text="${usuario.username}"></td>
           
           <td th:if="${#lists.size(usuario.direcciones) == 0}">
-            <a class="btn btn-primary" href="#">Añadir dirección</a>
+            <a class="btn btn-primary" th:href="|/usuarios/${usuario.id}/direcciones/add|">Añadir dirección</a>
           </td>
           <td th:unless="${#lists.size(usuario.direcciones) == 0}">
             <div th:each="direccion : ${usuario.direcciones}">
@@ -49,9 +50,9 @@
               planta: <span th:text="${direccion.planta}"></span>
             </div>
           </td>
-          <td>   
-            <a class="btn btn-success" th:href="|/usuarios/edit/${usuario.id}|">Actualizar</a>
-            <a class="btn btn-danger" th:href="@{/usuarios/delete/}+${usuario.id}">Borrar</a>                    
+          <td>
+              <a class="btn btn-success" th:href="|/usuarios/edit/${usuario.id}|">Editar</a>
+              <a class="btn btn-danger" th:href="|/usuarios/delete/${usuario.id}|">Borrar</a>
           </td>
         </tr>
       </tbody>
